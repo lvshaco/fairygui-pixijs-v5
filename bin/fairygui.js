@@ -16693,7 +16693,7 @@ var PIXI;
             }
             AssetLoader.prototype._onComplete = function () {
                 AssetLoader.addResources(this.resources);
-                this.onComplete.detach(this);
+                this.onComplete.dispatch();
             };
             ;
             Object.defineProperty(AssetLoader, "resourcesPool", {
