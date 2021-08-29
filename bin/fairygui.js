@@ -13257,8 +13257,6 @@ var MYPIXI;
                 var _this = _super.call(this, tex) || this;
                 _this.$flipX = false;
                 _this.$flipY = false;
-                console.log("TilingSprite:");
-                console.log(tex);
                 _this.$frameId = frameId;
                 return _this;
             }
@@ -15069,9 +15067,6 @@ var MYPIXI;
             if (item) {
                 item.load();
                 if (item.scaleByTile) {
-                    console.log("UIImage:");
-                    console.log(item.id);
-                    console.log(item.texture);
                     var ts = new MYPIXI.extras.TilingSprite(item.id, item.texture);
                     this.$disp = ts;
                 }

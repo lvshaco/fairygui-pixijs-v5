@@ -11,8 +11,6 @@ namespace MYPIXI.extras {
         
         public constructor(frameId?:string, tex?:PIXI.Texture) {
             super(tex);
-            console.log("TilingSprite:")
-            console.log(tex)
             this.$frameId = frameId;
         }
         

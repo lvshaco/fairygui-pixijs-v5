@@ -17,9 +17,6 @@ namespace fgui {
                 item.load();
 
                 if (item.scaleByTile) {
-                    console.log("UIImage:")
-                    console.log(item.id)
-                    console.log(item.texture)
                     let ts = new MYPIXI.extras.TilingSprite(item.id,item.texture);
                     this.$disp = ts;
                 }
