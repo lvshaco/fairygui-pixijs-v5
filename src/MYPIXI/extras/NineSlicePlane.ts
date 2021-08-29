@@ -1,5 +1,5 @@
 
-namespace PIXI.extras {
+namespace MYPIXI.extras {
 
     export class NineSlicePlane extends PIXI.NineSlicePlane {
 

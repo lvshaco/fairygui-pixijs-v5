@@ -1,7 +1,6 @@
-
-namespace PIXI.extras {
-
-    export class TilingSprite extends PIXI.TilingSprite {
+namespace MYPIXI.extras {
+    
+    export class Sprite extends PIXI.Sprite {
 
         protected $flipX:boolean = false;
         protected $flipY:boolean = false;
@@ -45,13 +44,13 @@ namespace PIXI.extras {
             const cachedid = this.combineCacheId(flipx, flipy);
             if(cachedid == null) return this.texture;
 
-            let ret = TilingSprite.$cachedTexturePool[cachedid];
+            let ret = Sprite.$cachedTexturePool[cachedid];
             if(!ret) {
                 ret = {
                     refCount: 1,
                     texture: this.createFlippedTexture(this.texture, flipx, flipy)
                 };
-                TilingSprite.$cachedTexturePool[cachedid] = ret;
+                Sprite.$cachedTexturePool[cachedid] = ret;
             }
             else
                 ret.refCount++;
@@ -62,12 +61,12 @@ namespace PIXI.extras {
             const cachedid = this.combineCacheId(flipx, flipy);
             if(!cachedid) return false;
 
-            let ret = TilingSprite.$cachedTexturePool[cachedid];
+            let ret = Sprite.$cachedTexturePool[cachedid];
             if(ret) {
                 ret.refCount--;
                 if(ret.refCount <= 0) {
                     ret.texture.destroy();
-                    delete TilingSprite.$cachedTexturePool[cachedid];
+                    delete Sprite.$cachedTexturePool[cachedid];
                 }
                 return true;
             }
@@ -116,7 +115,7 @@ namespace PIXI.extras {
             }
         }
 
-        public destroy(options?:PIXI.destoryOptions):void {
+        public destroy(options?: PIXI.destoryOptions):void {
             this.tryRemoveTextureCache(this.$flipX, this.$flipY);
             super.destroy(options);
         }

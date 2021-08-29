@@ -1718,7 +1718,7 @@ declare namespace fgui {
         private $dragStart;
     }
 }
-declare namespace PIXI.extras {
+declare namespace MYPIXI.extras {
     class InteractionManager extends PIXI.InteractionManager {
         stageRotation: number;
         stageScaleX: number;
@@ -1731,7 +1731,7 @@ declare namespace PIXI.extras {
         mapPositionToPoint(point: PIXI.Point, x: number, y: number): void;
     }
 }
-declare namespace PIXI.extras {
+declare namespace MYPIXI.extras {
     class NineSlicePlane extends PIXI.NineSlicePlane {
         protected $flipX: boolean;
         protected $flipY: boolean;
@@ -1742,7 +1742,7 @@ declare namespace PIXI.extras {
         flipY: boolean;
     }
 }
-declare namespace PIXI.extras {
+declare namespace MYPIXI.extras {
     class Sprite extends PIXI.Sprite {
         protected $flipX: boolean;
         protected $flipY: boolean;
@@ -1764,7 +1764,7 @@ declare namespace PIXI.extras {
         destroy(options?: PIXI.destoryOptions): void;
     }
 }
-declare namespace PIXI.extras {
+declare namespace MYPIXI.extras {
     class TilingSprite extends PIXI.TilingSprite {
         protected $flipX: boolean;
         protected $flipY: boolean;
@@ -2162,7 +2162,7 @@ declare namespace fgui {
 declare namespace fgui {
     class UIImage extends PIXI.Container implements IUIObject {
         UIOwner: GObject;
-        protected $disp: PIXI.extras.TilingSprite | PIXI.extras.NineSlicePlane | PIXI.extras.Sprite;
+        protected $disp: MYPIXI.extras.TilingSprite | MYPIXI.extras.NineSlicePlane | MYPIXI.extras.Sprite;
         constructor(owner?: GObject);
         $initDisp(item?: PackageItem): void;
         tint: number;

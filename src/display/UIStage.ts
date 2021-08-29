@@ -363,7 +363,7 @@ namespace fgui {
             this.$scaleX = stageWidth / displayWidth
             this.$scaleY = stageHeight / displayHeight;
             
-            let im = this.$appContext.renderer.plugins.interaction as PIXI.extras.InteractionManager;
+            let im = this.$appContext.renderer.plugins.interaction as MYPIXI.extras.InteractionManager;
             im.stageRotation = rotDeg;
             im.stageScaleX = this.$scaleX;
             im.stageScaleY = this.$scaleY;

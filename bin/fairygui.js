@@ -12961,8 +12961,8 @@ window.__extends = (this && this.__extends) || (function () {
     }(fgui.GComponent));
     fgui.Window = Window;
 })(fgui || (fgui = {}));
-var PIXI;
-(function (PIXI) {
+var MYPIXI;
+(function (MYPIXI) {
     var extras;
     (function (extras) {
         var InteractionManager = (function (_super) {
@@ -13006,11 +13006,11 @@ var PIXI;
             return InteractionManager;
         }(PIXI.InteractionManager));
         extras.InteractionManager = InteractionManager;
-        PIXI.Renderer.registerPlugin("interaction", PIXI.extras.InteractionManager);
-    })(extras = PIXI.extras || (PIXI.extras = {}));
-})(PIXI || (PIXI = {}));
-var PIXI;
-(function (PIXI) {
+        PIXI.Renderer.registerPlugin("interaction", MYPIXI.extras.InteractionManager);
+    })(extras = MYPIXI.extras || (MYPIXI.extras = {}));
+})(MYPIXI || (MYPIXI = {}));
+var MYPIXI;
+(function (MYPIXI) {
     var extras;
     (function (extras) {
         var NineSlicePlane = (function (_super) {
@@ -13126,10 +13126,10 @@ var PIXI;
             return NineSlicePlane;
         }(PIXI.NineSlicePlane));
         extras.NineSlicePlane = NineSlicePlane;
-    })(extras = PIXI.extras || (PIXI.extras = {}));
-})(PIXI || (PIXI = {}));
-var PIXI;
-(function (PIXI) {
+    })(extras = MYPIXI.extras || (MYPIXI.extras = {}));
+})(MYPIXI || (MYPIXI = {}));
+var MYPIXI;
+(function (MYPIXI) {
     var extras;
     (function (extras) {
         var Sprite = (function (_super) {
@@ -13245,10 +13245,10 @@ var PIXI;
             return Sprite;
         }(PIXI.Sprite));
         extras.Sprite = Sprite;
-    })(extras = PIXI.extras || (PIXI.extras = {}));
-})(PIXI || (PIXI = {}));
-var PIXI;
-(function (PIXI) {
+    })(extras = MYPIXI.extras || (MYPIXI.extras = {}));
+})(MYPIXI || (MYPIXI = {}));
+var MYPIXI;
+(function (MYPIXI) {
     var extras;
     (function (extras) {
         var TilingSprite = (function (_super) {
@@ -13257,6 +13257,8 @@ var PIXI;
                 var _this = _super.call(this, tex) || this;
                 _this.$flipX = false;
                 _this.$flipY = false;
+                console.log("TilingSprite:");
+                console.log(tex);
                 _this.$frameId = frameId;
                 return _this;
             }
@@ -13364,8 +13366,8 @@ var PIXI;
             return TilingSprite;
         }(PIXI.TilingSprite));
         extras.TilingSprite = TilingSprite;
-    })(extras = PIXI.extras || (PIXI.extras = {}));
-})(PIXI || (PIXI = {}));
+    })(extras = MYPIXI.extras || (MYPIXI.extras = {}));
+})(MYPIXI || (MYPIXI = {}));
 
 (function (fgui) {
     var UIConfig = (function () {
@@ -15067,18 +15069,21 @@ var PIXI;
             if (item) {
                 item.load();
                 if (item.scaleByTile) {
-                    var ts = new PIXI.extras.TilingSprite(item.id, item.texture);
+                    console.log("UIImage:");
+                    console.log(item.id);
+                    console.log(item.texture);
+                    var ts = new MYPIXI.extras.TilingSprite(item.id, item.texture);
                     this.$disp = ts;
                 }
                 else if (item.scale9Grid) {
-                    this.$disp = new PIXI.extras.NineSlicePlane(item.texture, item.scale9Grid.left, item.scale9Grid.top, Math.max(0, item.texture.width - item.scale9Grid.width - item.scale9Grid.x), Math.max(0, item.texture.height - item.scale9Grid.height - item.scale9Grid.y));
+                    this.$disp = new MYPIXI.extras.NineSlicePlane(item.texture, item.scale9Grid.left, item.scale9Grid.top, Math.max(0, item.texture.width - item.scale9Grid.width - item.scale9Grid.x), Math.max(0, item.texture.height - item.scale9Grid.height - item.scale9Grid.y));
                     this.tiledSlices = item.tiledSlices;
                 }
                 else
-                    this.$disp = new PIXI.extras.Sprite(item.id, item.texture);
+                    this.$disp = new MYPIXI.extras.Sprite(item.id, item.texture);
             }
             else
-                this.$disp = new PIXI.extras.Sprite();
+                this.$disp = new MYPIXI.extras.Sprite();
             this.addChild(this.$disp);
         };
         Object.defineProperty(UIImage.prototype, "tint", {

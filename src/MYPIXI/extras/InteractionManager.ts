@@ -1,4 +1,4 @@
-namespace PIXI.extras {
+namespace MYPIXI.extras {
 
     export class InteractionManager extends PIXI.InteractionManager {
 
@@ -53,7 +53,7 @@ namespace PIXI.extras {
 
         }
     }
-    PIXI.Renderer.registerPlugin("interaction", PIXI.extras.InteractionManager);
+    PIXI.Renderer.registerPlugin("interaction", MYPIXI.extras.InteractionManager);
     // PIXI.InteractionManager=PIXI.extras.InteractionManager;
     // //override
     // PIXI.CanvasRenderer.registerPlugin("interaction", PIXI.extras.InteractionManager);

@@ -1,7 +1,7 @@
 namespace fgui {
     export class UIImage extends PIXI.Container implements IUIObject {
         public UIOwner: GObject;
-        protected $disp: PIXI.extras.TilingSprite | PIXI.extras.NineSlicePlane | PIXI.extras.Sprite;
+        protected $disp: MYPIXI.extras.TilingSprite | MYPIXI.extras.NineSlicePlane | MYPIXI.extras.Sprite;
 
         public constructor(owner?: GObject) {
             super();
@@ -17,11 +17,14 @@ namespace fgui {
                 item.load();
 
                 if (item.scaleByTile) {
-                    let ts = new PIXI.extras.TilingSprite(item.id,item.texture);
+                    console.log("UIImage:")
+                    console.log(item.id)
+                    console.log(item.texture)
+                    let ts = new MYPIXI.extras.TilingSprite(item.id,item.texture);
                     this.$disp = ts;
                 }
                 else if (item.scale9Grid) {
-                    this.$disp = new PIXI.extras.NineSlicePlane(
+                    this.$disp = new MYPIXI.extras.NineSlicePlane(
                         item.texture,
                         item.scale9Grid.left,
                         item.scale9Grid.top,
@@ -31,10 +34,10 @@ namespace fgui {
                     this.tiledSlices = item.tiledSlices;
                 }
                 else
-                    this.$disp = new PIXI.extras.Sprite(item.id, item.texture);
+                    this.$disp = new MYPIXI.extras.Sprite(item.id, item.texture);
             }
             else
-                this.$disp = new PIXI.extras.Sprite();
+                this.$disp = new MYPIXI.extras.Sprite();
 
             this.addChild(this.$disp);
         }
@@ -69,7 +72,7 @@ namespace fgui {
 
         public set texture(v: PIXI.Texture) {
             //need to reset first?
-            /*if (this.$disp instanceof PIXI.extras.TilingSprite) {
+            /*if (this.$disp instanceof MYPIXI.extras.TilingSprite) {
                 this.$disp.tileScale.set(1, 1);
                 this.$disp.tilePosition.set(0, 0);
             }
