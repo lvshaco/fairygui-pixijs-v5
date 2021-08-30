@@ -1127,7 +1127,10 @@ window.__extends = (this && this.__extends) || (function () {
             return this;
         };
         GObject.prototype.hasListener = function (event, handler) {
-            return this.$displayObject.listeners(event).indexOf(handler) >= 0;
+            if (!handler)
+                return this.$displayObject.listenerCount(event) > 0;
+            else
+                return this.$displayObject.listeners(event).indexOf(handler) >= 0;
         };
         GObject.prototype.emit = function (event) {
             var args = [];
